@@ -1,0 +1,148 @@
+.bg-green{
+    background-color: rgba(59, 132, 137, 1);   
+   
+}
+
+.font-color-green{
+    font-family: 'Raleway', sans-serif;
+    color:rgba(59, 132, 137, 1);
+}
+
+.font-color-white{
+    font-family: 'Raleway', sans-serif;
+    color:white;
+}
+
+.font-color-black{
+    font-family: 'Raleway', sans-serif;
+    color:black; 
+}
+
+.font-light{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;  
+}
+
+.font-bold{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-weight: bolder;
+}
+
+.font-size-14{
+    font-size: 14px;
+}
+.font-size-20{
+    font-size: 20px;
+}
+.font-size-28{
+    font-size: 28px;
+}
+
+.h2-admin{
+  /* ADMIN */
+
+font-family: Raleway;
+font-style: normal;
+font-weight: 600;
+font-size: 40px;
+line-height: 85px;
+text-decoration-line: underline;
+
+color: #3B8489;
+ 
+}
+
+.h2-title{
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 62px;
+    line-height: 85px;
+    color: #3B8489;  
+}
+.h2-title-18{
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 25px;
+    line-height: 85px;
+    color: #3B8489;  
+}
+
+
+.section-is-middle{
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    margin: 10px;
+
+}
+
+.section-is-center{
+    display: flex;
+    padding:10%;
+    justify-content: center;
+    align-items:center;
+    margin: 10px;
+    
+
+}
+.is-square{
+    border:1px solid #3B8489;
+    padding: 20px;
+    margin-top: 10%;
+    padding-bottom: 40px;
+    
+}
+
+.label{
+    text-align: left;
+}
+
+.spacing-4{
+    margin-top:20px;
+}
+
+a{
+    color:#3B8489;
+}
+.info{
+    margin:20px;
+    background-color: #3b848977;
+    color:black;
+    padding: 10px;
+}
+
+section{
+    margin: 80px;
+}
+
+.has-border{
+    border: 3px solid #3B8489;
+    text-shadow: none;
+  
+
+}
+.plus-sign{
+    font-family: Raleway;
+    font-size: 60px;
+}
+
+.redError{
+    color:rgb(165, 4, 4);
+    background-color: rgb(236, 193, 193);
+    border-radius: 10px;
+    padding-left: 5px;
+}
+
+.card{
+    height: 100%;
+}
+
+.card-content{
+    padding:12px;
+}
+p.card-footer-item{
+    border:none;
+}
