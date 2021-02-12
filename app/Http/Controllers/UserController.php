@@ -62,8 +62,9 @@ public function bookAdminCreate( Request $request)
 {
     $this->validate($request, [
         'title'=> 'Required|min:5',
-        'first_name' => 'Required|min:5',
-        'last_name'=> 'Required'
+        'first_name' => 'Required|min:2',
+        'last_name'=> 'Required',
+        'gender' => 'Required'
     ]);
 
     $book = new Book([
@@ -73,11 +74,13 @@ public function bookAdminCreate( Request $request)
         'first_name' => $request->input('first_name'),
         'last_name' => $request->input('last_name')
     ]);
+    $genre = new Genre([
+        'name' => $request->select('genre')
+    ]);
     
     $book->save();
-    $book->genres()->attach($request->input('genres') === null ? [] : $request -> input('genres'));
-    $book->author()->attach($request->input('first_name') === null ? [] : $request -> input('first_name'));
-    $book->author()->attach($request->input('last_name') === null ? [] : $request -> input('last_name'));
+    $author->save();
+    $genre->save();
     return redirect()
     ->route('admin.index')
     ->with('info', 'book created, Title is: ' . $request
@@ -89,19 +92,20 @@ public function bookAdminUpdate(Request $request)
     $this->validate($request, [
         'title'=> 'Required|min:5',
         'first_name'=> 'Required',
-        'last_name'=> 'Required'  
+        'last_name'=> 'Required', 
+        'gender' => 'Required' 
     ]);
 
     $book = Book::find($request->input('id'));
     $book->title = $request->input('title');
     $book->author->first_name = $request->input('first_name');
     $book->author->last_name = $request->input('last_name');
+    $book->author->gender = $request->input('gender');
     $book->save();
     // $book->genres()->detach();
     // $book->genres()->attach($request->input('genres') === null ? [] : $request -> input('genres'));
 
-    $book->genres()->sync($request->input('genres') === null ? [] : $request -> input('genres'));
-    $book->author()->attach($request->input('author') === null ? [] : $request -> input('author'));
+    
     return redirect()->route('admin.index')
     ->with('info', 'book edited, new title is: ' . $request
     ->input('title'));
@@ -110,10 +114,10 @@ public function bookAdminUpdate(Request $request)
 public function getAdminDelete($id)
 {
     $book = Book::find($id);
-    $post->likes()->delete();
+    $book->likes()->delete();
     $book->delete();
-    $book->genres()->detach();
-    $book->author()->detach();
+    $book->genres()->delete();
+    $book->author()->delete();
     return redirect()
     ->route('admin.index')
     ->with('info', 'book deleted');

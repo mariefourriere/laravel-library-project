@@ -30,7 +30,7 @@
                     
 
                     <p>
-                    @foreach($book->genres as $genre)
+                    @foreach($genres as $genre)
                         - {{$genre->name}} - 
                     @endforeach
                     </p>
